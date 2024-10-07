@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPC</title>
+</head>
+<style>
+    body {
+        background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20231219/pngtree-childrens-day-blue-cartoon-poster-background-image_15523485.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    input {
+        background-color: rgba(232, 255, 255, 0.412);
+        font-size: 20px;
+        border-radius: 12px;
+        text-align: center;
+        padding: 6px;
+       
+    }
+     button {
+        font-size: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 120px;
+        background-color: rgba(144, 14, 70, 0.238);
+        color: rgb(249, 248, 247);
+    }
+    #name{
+        background-color: transparent;
+        color: rgb(249, 248, 247);
+        padding-left: 120px;
+        font-size: 90px;
+       
+     }
+</style>
+<body>
+    <div id="container" style="text-align: center;">
+        <h1 id="name">ᵣₒcₖ ₚₐₚₑᵣ ₛcᵢₛₛₒᵣ</h1>
+        <img src="https://static.vecteezy.com/system/resources/previews/000/693/105/non_2x/cartoon-rock-paper-scissors-vector-characters.jpg"
+            height="200px" style="border: 15px groove; border-radius: 10px; "><br><br>
+        <input type="text" placeholder="Enter Rock value" id="Rock"><br><br>
+        <input type="text" placeholder="Enter Paper value" id="Paper"><br><br>
+        <input type="text" placeholder="Enter Scissor value" id="Scissor"><br><br>
+
+        <button onclick="sub()">Subimt</button>
+        <button onclick="reset()">Reset</button>
+
+        <h2 id="User_Rock"></h2>
+        <h2 id="User_Paper"></h2>
+        <h2 id="User_Scissor"></h2>
+
+        <h2 id="Sytem_Rock">
+            </h1id>
+            <h2 id="Sytem_Paper"></h2>
+            <h2 id="Sytem_Scissor"></h2>
+
+
+
+            <h1 id="output">
+            </h1>
+    </div>
+   
+    <script>
+        let userrock = document.getElementById("Rock");
+        let userpaper = document.getElementById("Paper");
+        let userscissor = document.getElementById("Scissor");
+
+
+        let User_rock = document.getElementById("User_Rock");
+        let User_paper = document.getElementById("User_Paper");
+        let User_scissor = document.getElementById("User_Scissor");
+
+        let System_rock = document.getElementById("Sytem_Rock");
+        let System_paper = document.getElementById("Sytem_Paper");
+        let System_Scissor = document.getElementById("Sytem_Scissor");
+
+        let outcome = document.getElementById("output");
+
+        function sub() {
+            let Urock = userrock.value;
+            let Upaper = userpaper.value;
+            let Uscissor = userscissor.value;
+
+            let a = Math.ceil(Math.random() * 6);
+            let b = Math.ceil(Math.random() * 6);
+            let c = Math.ceil(Math.random() * 6);
+
+            // outcome.textContent="hi";
+            User_rock.textContent = "Your Rock value : " + Urock;
+            User_rock.style.color = "black";
+            userrock.value =""
+            User_paper.textContent = "Your Paper value : " + Upaper;
+            User_paper.style.color = "black";
+            userpaper.value=""
+            User_scissor.textContent = "Your Scissor value : " + Uscissor;
+            User_scissor.style.color = "black";
+            userscissor.value="";
+
+            System_rock.textContent = "System  Rock value : " + a;
+            System_rock.style.color = "white";
+            System_paper.textContent = "System Paper value: " + b;
+            System_paper.style.color = "white";
+            System_Scissor.textContent = "System Scissor value : " + c;
+            System_Scissor.style.color = "white";
+
+
+            if (Urock == a && Upaper == b && Uscissor == c) {
+                outcome.textContent = "YOU W I N ! . . . ";
+                outcome.style.color = "gold";
+                outcome.style.backgroundColor = "white";
+            }
+            else if (Urock > a || Upaper > b && Uscissor > c) {
+                outcome.textContent = "Your number is BIG! ";
+                outcome.style.color = "black";
+                outcome.style.backgroundColor = "yellow";
+            }
+            else if (Urock < a || Upaper < b || Uscissor < c) {
+                outcome.textContent = "Your number is SMALL! ";
+                outcome.style.color = "blue";
+                outcome.style.backgroundColor = "yellow";
+
+            }
+            else {
+                outcome.textContent = "YOU LOST!";
+                outcome.style.color = "red";
+                outcome.style.backgroundColor = "yellow";
+            }
+        }
+        function reset(){
+            User_rock.textContent = " " ;
+            User_paper.textContent = "" ;
+            User_scissor.textContent = "" ;
+        
+            System_rock.textContent = "" ;
+            System_paper.textContent = "" ;
+            System_Scissor.textContent = " " ;
+
+            outcome.textContent = "";
+        }
+
+
+    </script>
+</body>
+
+</html>
